@@ -10,7 +10,7 @@ export default function PostCard({
   views,
 }: PostCardProps) {
   return (
-    <div className="border border-gray-300 p-4 rounded-lg bg-gray-100 hover:shadow-md transition">
+    <div className="w-1/2 mx-auto border border-gray-300 p-4 rounded-lg bg-gray-100 hover:shadow-md transition">
       <h4 className="text-lg font-semibold">{title}</h4>
 
       <p className="mt-2 text-gray-700">{body}</p>
