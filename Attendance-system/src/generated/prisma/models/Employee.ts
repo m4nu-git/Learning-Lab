@@ -31,6 +31,7 @@ export type EmployeeMinAggregateOutputType = {
   email: string | null
   phone: string | null
   isActive: boolean | null
+  punchStatus: $Enums.PunchStatus | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -42,6 +43,7 @@ export type EmployeeMaxAggregateOutputType = {
   email: string | null
   phone: string | null
   isActive: boolean | null
+  punchStatus: $Enums.PunchStatus | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -53,6 +55,7 @@ export type EmployeeCountAggregateOutputType = {
   email: number
   phone: number
   isActive: number
+  punchStatus: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -66,6 +69,7 @@ export type EmployeeMinAggregateInputType = {
   email?: true
   phone?: true
   isActive?: true
+  punchStatus?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -77,6 +81,7 @@ export type EmployeeMaxAggregateInputType = {
   email?: true
   phone?: true
   isActive?: true
+  punchStatus?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -88,6 +93,7 @@ export type EmployeeCountAggregateInputType = {
   email?: true
   phone?: true
   isActive?: true
+  punchStatus?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -172,6 +178,7 @@ export type EmployeeGroupByOutputType = {
   email: string | null
   phone: string | null
   isActive: boolean
+  punchStatus: $Enums.PunchStatus
   createdAt: Date
   updatedAt: Date
   _count: EmployeeCountAggregateOutputType | null
@@ -204,6 +211,7 @@ export type EmployeeWhereInput = {
   email?: Prisma.StringNullableFilter<"Employee"> | string | null
   phone?: Prisma.StringNullableFilter<"Employee"> | string | null
   isActive?: Prisma.BoolFilter<"Employee"> | boolean
+  punchStatus?: Prisma.EnumPunchStatusFilter<"Employee"> | $Enums.PunchStatus
   createdAt?: Prisma.DateTimeFilter<"Employee"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Employee"> | Date | string
   punchEvents?: Prisma.PunchEventListRelationFilter
@@ -216,6 +224,7 @@ export type EmployeeOrderByWithRelationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  punchStatus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   punchEvents?: Prisma.PunchEventOrderByRelationAggregateInput
@@ -231,6 +240,7 @@ export type EmployeeWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"Employee"> | string
   phone?: Prisma.StringNullableFilter<"Employee"> | string | null
   isActive?: Prisma.BoolFilter<"Employee"> | boolean
+  punchStatus?: Prisma.EnumPunchStatusFilter<"Employee"> | $Enums.PunchStatus
   createdAt?: Prisma.DateTimeFilter<"Employee"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Employee"> | Date | string
   punchEvents?: Prisma.PunchEventListRelationFilter
@@ -243,6 +253,7 @@ export type EmployeeOrderByWithAggregationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrderInput | Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  punchStatus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.EmployeeCountOrderByAggregateInput
@@ -260,6 +271,7 @@ export type EmployeeScalarWhereWithAggregatesInput = {
   email?: Prisma.StringNullableWithAggregatesFilter<"Employee"> | string | null
   phone?: Prisma.StringNullableWithAggregatesFilter<"Employee"> | string | null
   isActive?: Prisma.BoolWithAggregatesFilter<"Employee"> | boolean
+  punchStatus?: Prisma.EnumPunchStatusWithAggregatesFilter<"Employee"> | $Enums.PunchStatus
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Employee"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Employee"> | Date | string
 }
@@ -271,6 +283,7 @@ export type EmployeeCreateInput = {
   email?: string | null
   phone?: string | null
   isActive?: boolean
+  punchStatus?: $Enums.PunchStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   punchEvents?: Prisma.PunchEventCreateNestedManyWithoutEmployeeInput
@@ -283,6 +296,7 @@ export type EmployeeUncheckedCreateInput = {
   email?: string | null
   phone?: string | null
   isActive?: boolean
+  punchStatus?: $Enums.PunchStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   punchEvents?: Prisma.PunchEventUncheckedCreateNestedManyWithoutEmployeeInput
@@ -295,6 +309,7 @@ export type EmployeeUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  punchStatus?: Prisma.EnumPunchStatusFieldUpdateOperationsInput | $Enums.PunchStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   punchEvents?: Prisma.PunchEventUpdateManyWithoutEmployeeNestedInput
@@ -307,6 +322,7 @@ export type EmployeeUncheckedUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  punchStatus?: Prisma.EnumPunchStatusFieldUpdateOperationsInput | $Enums.PunchStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   punchEvents?: Prisma.PunchEventUncheckedUpdateManyWithoutEmployeeNestedInput
@@ -319,6 +335,7 @@ export type EmployeeCreateManyInput = {
   email?: string | null
   phone?: string | null
   isActive?: boolean
+  punchStatus?: $Enums.PunchStatus
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -330,6 +347,7 @@ export type EmployeeUpdateManyMutationInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  punchStatus?: Prisma.EnumPunchStatusFieldUpdateOperationsInput | $Enums.PunchStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -341,6 +359,7 @@ export type EmployeeUncheckedUpdateManyInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  punchStatus?: Prisma.EnumPunchStatusFieldUpdateOperationsInput | $Enums.PunchStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -352,6 +371,7 @@ export type EmployeeCountOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  punchStatus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -363,6 +383,7 @@ export type EmployeeMaxOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  punchStatus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -374,6 +395,7 @@ export type EmployeeMinOrderByAggregateInput = {
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  punchStatus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -389,6 +411,10 @@ export type NullableStringFieldUpdateOperationsInput = {
 
 export type BoolFieldUpdateOperationsInput = {
   set?: boolean
+}
+
+export type EnumPunchStatusFieldUpdateOperationsInput = {
+  set?: $Enums.PunchStatus
 }
 
 export type EmployeeCreateNestedOneWithoutPunchEventsInput = {
@@ -414,6 +440,7 @@ export type EmployeeCreateWithoutPunchEventsInput = {
   email?: string | null
   phone?: string | null
   isActive?: boolean
+  punchStatus?: $Enums.PunchStatus
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -425,6 +452,7 @@ export type EmployeeUncheckedCreateWithoutPunchEventsInput = {
   email?: string | null
   phone?: string | null
   isActive?: boolean
+  punchStatus?: $Enums.PunchStatus
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -452,6 +480,7 @@ export type EmployeeUpdateWithoutPunchEventsInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  punchStatus?: Prisma.EnumPunchStatusFieldUpdateOperationsInput | $Enums.PunchStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -463,6 +492,7 @@ export type EmployeeUncheckedUpdateWithoutPunchEventsInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  punchStatus?: Prisma.EnumPunchStatusFieldUpdateOperationsInput | $Enums.PunchStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -505,6 +535,7 @@ export type EmployeeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   email?: boolean
   phone?: boolean
   isActive?: boolean
+  punchStatus?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   punchEvents?: boolean | Prisma.Employee$punchEventsArgs<ExtArgs>
@@ -518,6 +549,7 @@ export type EmployeeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   email?: boolean
   phone?: boolean
   isActive?: boolean
+  punchStatus?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["employee"]>
@@ -529,6 +561,7 @@ export type EmployeeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   email?: boolean
   phone?: boolean
   isActive?: boolean
+  punchStatus?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["employee"]>
@@ -540,11 +573,12 @@ export type EmployeeSelectScalar = {
   email?: boolean
   phone?: boolean
   isActive?: boolean
+  punchStatus?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type EmployeeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "employeeCode" | "email" | "phone" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["employee"]>
+export type EmployeeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "employeeCode" | "email" | "phone" | "isActive" | "punchStatus" | "createdAt" | "updatedAt", ExtArgs["result"]["employee"]>
 export type EmployeeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   punchEvents?: boolean | Prisma.Employee$punchEventsArgs<ExtArgs>
   _count?: boolean | Prisma.EmployeeCountOutputTypeDefaultArgs<ExtArgs>
@@ -564,6 +598,7 @@ export type $EmployeePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     email: string | null
     phone: string | null
     isActive: boolean
+    punchStatus: $Enums.PunchStatus
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["employee"]>
@@ -996,6 +1031,7 @@ export interface EmployeeFieldRefs {
   readonly email: Prisma.FieldRef<"Employee", 'String'>
   readonly phone: Prisma.FieldRef<"Employee", 'String'>
   readonly isActive: Prisma.FieldRef<"Employee", 'Boolean'>
+  readonly punchStatus: Prisma.FieldRef<"Employee", 'PunchStatus'>
   readonly createdAt: Prisma.FieldRef<"Employee", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Employee", 'DateTime'>
 }

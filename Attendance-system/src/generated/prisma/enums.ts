@@ -31,3 +31,11 @@ export const PersonType = {
 } as const
 
 export type PersonType = (typeof PersonType)[keyof typeof PersonType]
+
+
+export const PunchStatus = {
+  PUNCHED_IN: 'PUNCHED_IN',
+  PUNCHED_OUT: 'PUNCHED_OUT'
+} as const
+
+export type PunchStatus = (typeof PunchStatus)[keyof typeof PunchStatus]

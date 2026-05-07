@@ -93,6 +93,7 @@ export const EmployeeScalarFieldEnum = {
   email: 'email',
   phone: 'phone',
   isActive: 'isActive',
+  punchStatus: 'punchStatus',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

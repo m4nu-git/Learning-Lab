@@ -1,4 +1,4 @@
-import { PersonType, PunchType } from "../../generated/prisma/client";
+import { PersonType, PunchStatus, PunchType } from "../../generated/prisma/client";
 import prisma from "../../lib/prisma";
 
 // Get the last punch event for an employee or guest
@@ -29,14 +29,17 @@ export const punchInEmployee = async (employeeId: string) => {
     throw new Error("Employee is already punched in. Please punch out first");
   }
 
-  return prisma.punchEvent.create({
-    data: {
-      type: PunchType.IN,
-      personType: PersonType.EMPLOYEE,
-      employeeId,
-    },
-    include: { employee: true },
-  });
+  const [punchEvent] = await prisma.$transaction([
+    prisma.punchEvent.create({
+      data: { type: PunchType.IN, personType: PersonType.EMPLOYEE, employeeId },
+      include: { employee: true },
+    }),
+    prisma.employee.update({
+      where: { id: employeeId },
+      data: { punchStatus: PunchStatus.PUNCHED_IN },
+    }),
+  ]);
+  return punchEvent;
 };
 
 export const punchOutEmployee = async (employeeId: string) => {
@@ -50,14 +53,17 @@ export const punchOutEmployee = async (employeeId: string) => {
     throw new Error("Employee is not punched in");
   }
 
-  return prisma.punchEvent.create({
-    data: {
-      type: PunchType.OUT,
-      personType: PersonType.EMPLOYEE,
-      employeeId,
-    },
-    include: { employee: true },
-  });
+  const [punchEvent] = await prisma.$transaction([
+    prisma.punchEvent.create({
+      data: { type: PunchType.OUT, personType: PersonType.EMPLOYEE, employeeId },
+      include: { employee: true },
+    }),
+    prisma.employee.update({
+      where: { id: employeeId },
+      data: { punchStatus: PunchStatus.PUNCHED_OUT },
+    }),
+  ]);
+  return punchEvent;
 };
 
 export const punchInGuest = async (guestId: string) => {
